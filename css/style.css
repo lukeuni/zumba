@@ -205,7 +205,7 @@ a:hover
 .section1{
     grid-area: section1;
     height: 20em;
-    background-image: url(/assets/laura.jpg);
+    background-image: url(../assets/laura.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
