@@ -1,0 +1,263 @@
+body{
+    background-color: black;
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+}
+/* Loading animation positon */
+.loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+/* Logo image in the nav bar*/
+.logo img {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    height: 40px;
+    cursor: pointer;
+    margin: 20px;
+    float: right;
+}
+/* White sticky nav bar */
+.nav {
+    margin-bottom: 10px;
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+}
+/* Hamburger Menu Start */
+
+a{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: #FFD240;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 30px;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -8px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #FFD240;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: black;
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  position: absolute;
+  width: 200px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  height: 100vh; 
+  background: #fff;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+/* Hamburger menu end */
+
+
+/* Grid start */
+.grid {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr;
+    grid-template-areas:
+        
+        "hero hero hero hero"
+        "section1 section1 section1 section1"
+        "section2 section2 section2 section2" 
+        "section3 section3 section3 section3"
+        "section4 section4 section4 section4"
+        "section5 section5 section5 section5";
+    
+}
+.hero{
+    grid-area: hero;
+    background-color: darkgray;
+    margin-top: 80px;
+}
+.hero video{
+   width: 100%;
+}
+.section1{
+    grid-area: section1;
+    height: 20em;
+    background-image: url(/assets/laura.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.underlay{
+    background-color: #18c8ff;
+    height: 100%;
+    z-index: -10;
+    opacity: 0.9;
+}
+.section2{
+    grid-area: section2;
+    height: 20em;
+    background-color: white;
+    background-image: url(/assets/laura.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.underlay2{
+    background-color: #baefff;
+    height: 100%;
+    z-index: -10;
+    opacity: 0.9;
+}
+.section3{
+    grid-area: section3;
+    height: 20em;
+    background-color: green;
+    background-image: url(/assets/laura.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.underlay3{
+    background-color: #004358;
+    height: 100%;
+    z-index: -10;
+    opacity: 0.9;
+}
+.section4{
+    grid-area: section4;
+    height: 20em;
+    background-color: pink;
+}
+.section5{
+    grid-area: section5;
+    height: 20em;
+    background-color: orange;
+}
+
+
+@media screen and (min-width: 736px) {
+    
+ 
+.grid{
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "hero hero hero hero hero hero"
+    "section1 section1 section2 section2 section3 section3" 
+    "section4 section4 section4 section4 section4 section4"
+    "section5 section5 section5 section5 section5 section5"
+        ;
+    }    
+}
+
